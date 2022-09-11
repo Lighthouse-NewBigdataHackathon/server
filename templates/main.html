@@ -1,0 +1,53 @@
+
+<style>
+
+  html, body, geolocation { width: 100%; height: 100%; } 
+  #pos1 { width: 80%; height: 100%;  text-align: center;}
+  #pos2 { width: 80%; height: 100%; float:left;text-align: center;}
+  #pos3 { width: 20%; height: 100%; position: relative; float: right;text-align: center;} 
+  #pos4 { width: 20%; height: 100%;float: right;} 
+  #container { width: 100%; height: 30%;}
+  #button {position: relative; float: right;}
+  #block_container {height: 30%;}
+  .center {
+  text-align: center;
+}
+</style>
+<!--
+  To Do
+  버튼으로 바꾸기 : 링크까지 달기
+  각 div text 중앙에 위치하게
+  css 정리하기
+-->
+
+<div id="container"> 
+  <div id="pos2" onmouseover="readText(this)">오늘의 뉴스 </div>
+  <div id="pos3">
+    <button type="button">
+      <span>🎤</span>
+    </button>
+  </div>
+</div>
+
+<div id="container">
+  <div id="pos1" onmouseover="readText(this)">즐겨찾기</div>
+</div>
+
+<div id="container">
+  <div id="pos2" onmouseover="readText(this)">정보수정</div> 
+  <div id="pos3" onmouseover="readText(this)">EVENT</div>
+</div>
+
+<script>
+function readText(e){
+  var text = e.innerText;
+  var speech = new SpeechSynthesisUtterance();
+  speech.text = text;
+  speech.volume = 1;
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  speechSynthesis.speak(speech);
+}
+
+</script>
