@@ -1,53 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+    <!-- CSS -->
+    <style>
+      /* =========================== */
 
-<style>
+      /* Normalize */
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-  html, body, geolocation { width: 100%; height: 100%; } 
-  #pos1 { width: 80%; height: 100%;  text-align: center;}
-  #pos2 { width: 80%; height: 100%; float:left;text-align: center;}
-  #pos3 { width: 20%; height: 100%; position: relative; float: right;text-align: center;} 
-  #pos4 { width: 20%; height: 100%;float: right;} 
-  #container { width: 100%; height: 30%;}
-  #button {position: relative; float: right;}
-  #block_container {height: 30%;}
-  .center {
-  text-align: center;
-}
-</style>
-<!--
-  To Do
-  버튼으로 바꾸기 : 링크까지 달기
-  각 div text 중앙에 위치하게
-  css 정리하기
--->
+      /* Body */
+      body {
+        height: 100vh;
+      }
 
-<div id="container"> 
-  <div id="pos2" onmouseover="readText(this)">오늘의 뉴스 </div>
-  <div id="pos3">
-    <button type="button">
-      <span>🎤</span>
-    </button>
-  </div>
-</div>
+      .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2vh 2vw;
+        height: 96vh;
+      }
 
-<div id="container">
-  <div id="pos1" onmouseover="readText(this)">즐겨찾기</div>
-</div>
+      .sub-container {
+        display: flex;
+        margin: 2vh;
+        height: 30vh;
+        width: 100%;
+      }
 
-<div id="container">
-  <div id="pos2" onmouseover="readText(this)">정보수정</div> 
-  <div id="pos3" onmouseover="readText(this)">EVENT</div>
-</div>
+      article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+      }
 
-<script>
-function readText(e){
-  var text = e.innerText;
-  var speech = new SpeechSynthesisUtterance();
-  speech.text = text;
-  speech.volume = 1;
-  speech.rate = 1;
-  speech.pitch = 1;
+      .left {
+        width: 75%;
+      }
 
-  speechSynthesis.speak(speech);
-}
+      .right {
+        width: 20%;
+        margin-left: 5%;
+      }
 
-</script>
+      .font {
+        font-size: 3rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: black;
+      }
+
+      .font:hover {
+        color: blue;
+      }
+
+      .border {
+        border: 3px solid black;
+      }
+    </style>
+    <script>
+      var table = document.querySelector("#table");
+
+    </script>
+    <!--
+    To Do
+    버튼으로 바꾸기 : 링크까지 달기
+    각 div text 중앙에 위치하게
+    css 정리하기
+  --></head>
+  <body>
+    <section class="container">
+      <!-- #1 Section -->
+      <section class="sub-container">
+        <article class="left border">
+          <div onmouseover="readText(this)">
+            <a class="font" href="" type="button" >오늘의 뉴스</a>
+          </div>
+        </article>
+        <article class="right">
+          <div>
+            <button type="button">
+              <a class="font" href="">🎤</a>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- #2 Section -->
+      <section class="sub-container">
+        <article class="left border">
+          <div onmouseover="readText(this)">
+            <a class="font" href="">즐겨찾기</a>
+          </div>
+        </article>
+        <article class="right"></article>
+      </section>
+
+      <!-- #3 Section -->
+      <section class="sub-container">
+        <article class="left border">
+          <div onmouseover="readText(this)">
+            <a class="font" href="">정보수정</a>  
+          </div>
+        </article>
+        <article class="right border">
+          <div onmouseover="readText(this)">
+            <a class="font" href="">EVENT</a>
+          </div>
+        </article>
+      </section>
+
+    <script>
+      // ===========================사용 시 주석 제거===========================
+      // function readText(e) {
+      //   var text = e.innerText;
+      //   var speech = new SpeechSynthesisUtterance();
+      //   speech.text = text;
+      //   speech.volume = 1;
+      //   speech.rate = 1;
+      //   speech.pitch = 1;
+
+      //   speechSynthesis.speak(speech);
+      // }
+    </script>
+  </body>
+</html>
