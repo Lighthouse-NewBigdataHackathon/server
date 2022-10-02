@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/font.css" />
-    <title>Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
 
     <!-- Font -->
     <link rel="stylesheet" type="text/css" href="../assets/css/font.css" />
@@ -33,16 +32,21 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 10vh 10vw;
+        margin: 5vh 10vw;
+        margin-top: 7vh;
         height: 80vh;
         width: 80vw;
       }
 
       .sub-container {
         display: flex;
-        margin: 2vh;
-        height: 30vh;
-        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 95%;
+        width: 95%;
+        border-radius: 20px;
+        background-color: #FFFFFF;
       }
 
       article {
@@ -50,18 +54,11 @@
         justify-content: center;
         align-items: center;
         width: 90vw;
-        background-color: #FFFFFF;
-      }
-
-
-      .removeBgColor {
-        background-color: #F5F5F7;
       }
 
       .left {
         width: 75%;
       }
-
 
       .right {
         width: 20%;
@@ -83,12 +80,30 @@
       }
 
       .border {
-        border: 2px solid black;
+        width: 95%;
+        border: 3px dotted black;
         padding: 1rem;
       }
 
       .content {
         padding: 1rem;
+      }
+
+      .subject {
+        height: 15%;
+        margin-bottom: 5%;
+      }
+
+      .description {
+        height: 70%
+      }
+
+      .nav {
+        height: 6vh;
+        width: 100vw;
+        background-color: #313132;
+        color: #F8F8F9;
+        margin: 4vh 0;
       }
     </style>
     <script>
@@ -97,46 +112,31 @@
     </script>
 </head>
   <body>
+    <div class="nav">
+
+    </div>
     <section class="container">
       <!-- #1 Section -->
       <section class="sub-container">
-        <article class="left border">
+
+        <article class="border subject">
           <div class="content" onmouseover="readText(this)">
-            <a class="font" href="" type="button" >오늘의 뉴스</a>
+            <a class="font" href="" type="button" >제목</a>
           </div>
         </article>
-        <article class="right removeBgColor">
-          <div>
-            <button type="button">
-              <a class="font" href="">🎤</a>
-            </button>
+
+        <article class="border description">
+          <div class="content" onmouseover="readText(this)">
+            <a class="font" href="" type="button" >기사</a>
           </div>
         </article>
+     
       </section>
 
-      <!-- #2 Section -->
-      <section class="sub-container">
-        <article class="left border">
-          <div class="content" onmouseover="readText(this)">
-            <a class="font" href="">즐겨찾기</a>
-          </div>
-        </article>
-        <article class="right removeBgColor"></article>
-      </section>
 
-      <!-- #3 Section -->
-      <section class="sub-container">
-        <article class="left border">
-          <div class="content" onmouseover="readText(this)">
-            <a class="font" href="">정보수정</a>  
-          </div>
-        </article>
-        <article class="right border">
-          <div class="content" onmouseover="readText(this)">
-            <a class="font" href="">EVENT</a>
-          </div>
-        </article>
-      </section>
+  
+    
+    
 
     <script>
       // ===========================사용 시 주석 제거===========================
