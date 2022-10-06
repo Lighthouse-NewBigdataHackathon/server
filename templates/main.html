@@ -101,9 +101,9 @@
       <!-- #1 Section -->
       <section class="sub-container">
         <article class="left border">
-          <form action = "http://127.0.0.1:5000/" method = "get">
+          <form action = "http://127.0.0.1:5000/articles" method = "get">
             <div class="content" onmouseover="readText(this)">
-              <a class="font" href ="" button type="submit">오늘의 뉴스</a>
+              <a class="font" href ="http://127.0.0.1:5000/articles" button type="submit">오늘의 뉴스</a>
             </div>
           </form>
         </article>
@@ -142,16 +142,16 @@
 
     <script>
       // ===========================사용 시 주석 제거===========================
-      // function readText(e) {
-      //   var text = e.innerText;
-      //   var speech = new SpeechSynthesisUtterance();
-      //   speech.text = text;
-      //   speech.volume = 1;
-      //   speech.rate = 1;
-      //   speech.pitch = 1;
+      function readText(e) {
+        var text = e.innerText;
+        var speech = new SpeechSynthesisUtterance();
+        speech.text = text;
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
 
-      //   speechSynthesis.speak(speech);
-      // }
+        speechSynthesis.speak(speech);
+      }
     </script>
   </body>
 </html>

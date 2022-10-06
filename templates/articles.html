@@ -115,41 +115,40 @@
     <div class="nav">
 
     </div>
-    <section class="container">
-      <!-- #1 Section -->
-      <section class="sub-container">
+    {%for article in articles%}
+      <section class="container">
+        <!-- #1 Section -->
+        <section class="sub-container">
+          <article class="border subject">
+            <div class="content" onclick="readText(this)">
+              <a class="font" href="" type="button" >{{article[0]}}</a>
+            </div>
+          </article>
 
-        <article class="border subject">
-          <div class="content" onmouseover="readText(this)">
-            <a class="font" href="" type="button" >제목</a>
-          </div>
-        </article>
-
-        <article class="border description">
-          <div class="content" onmouseover="readText(this)">
-            <a class="font" href="" type="button" >기사</a>
-          </div>
-        </article>
-     
+          <article class="border description">
+            <div class="content" onclick="readText(this)">
+              <a class="font" href="" type="button" >{{article[3]}}</a>
+            </div>
+          </article>
+      
+        </section>
       </section>
-
-
-  
+    {%endfor%}
     
     
 
     <script>
       // ===========================사용 시 주석 제거===========================
-      // function readText(e) {
-      //   var text = e.innerText;
-      //   var speech = new SpeechSynthesisUtterance();
-      //   speech.text = text;
-      //   speech.volume = 1;
-      //   speech.rate = 1;
-      //   speech.pitch = 1;
+      function readText(e) {
+        var text = e.innerText;
+        var speech = new SpeechSynthesisUtterance();
+        speech.text = text;
+        speech.volume = 1;
+        speech.rate = 1;
+        speech.pitch = 1;
 
-      //   speechSynthesis.speak(speech);
-      // }
+        speechSynthesis.speak(speech);
+      }
     </script>
   </body>
 </html>
