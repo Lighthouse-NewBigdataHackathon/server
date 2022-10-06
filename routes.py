@@ -21,11 +21,14 @@ def today():
         date='2022-09-30'
         q = db.select_with_date(date)
         cursor.execute(q)
-        result = cursor.fetchall()
+        result = list(cursor.fetchall())
+        for r in range(len(result)):
+            result[r] = list(result[r])
+            result[r][4]="https://www.bigkinds.or.kr/resources/images"+result[r][4]
         # print(result)
         return render_template("articles.html", articles=result)
 
 
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8000, debug=True)

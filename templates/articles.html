@@ -81,7 +81,7 @@
 
       .border {
         width: 95%;
-        border: 3px dotted black;
+        /* border: 3px dotted black; */
         padding: 1rem;
       }
 
@@ -104,6 +104,11 @@
         background-color: #313132;
         color: #F8F8F9;
         margin: 4vh 0;
+      }
+      .responsive {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
       }
     </style>
     <script>
@@ -128,6 +133,12 @@
           <article class="border description">
             <div class="content" onclick="readText(this)">
               <a class="font" href="" type="button" >{{article[3]}}</a>
+              <br>
+              <br>
+              <img src={{article[4]}} class="responsive">
+              <br>
+              <a class="font" href="" type="button" >{{article[5]}}</a>
+
             </div>
           </article>
       

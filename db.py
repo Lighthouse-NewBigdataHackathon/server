@@ -1,0 +1,22 @@
+import sys
+import os
+
+import pymysql
+import base64
+import requests
+import logging
+
+def connect_RDS(host, port, username, password, database):
+    try:
+        conn = pymysql.connect(host=host, user=username, passwd=password, db=database, port=port, use_unicode=True, charset='utf8')
+
+        cursor = conn.cursor()
+    except:
+        logging.error('Failed to connect RDS')
+        sys.exit(1)
+    return conn, cursor
+
+def select_with_date(date):
+    q = f"SELECT * FROM news WHERE news_date='{date}'"
+    return q
+
