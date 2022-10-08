@@ -12,7 +12,7 @@
     <!-- CSS -->
     <style>
       /* =========================== */
-      
+
       /* Normalize */
       * {
         margin: 0;
@@ -24,18 +24,19 @@
       /* Body */
       body {
         height: 100vh;
-        background-color: #F5F5F7;
+        background-color: #f5f5f7;
       }
 
-      .container{
+      .container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 5vh 10vw;
         margin-top: 7vh;
-        height: 80vh;
-        width: 80vw;
+
+        padding: 30px;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
       }
 
       .sub-container {
@@ -46,14 +47,14 @@
         height: 95%;
         width: 95%;
         border-radius: 20px;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
       }
 
       article {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 90vw;
+        width: 90%;
       }
 
       .left {
@@ -69,7 +70,7 @@
         /* font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif; */
         font-style: normal;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2.25rem;
         /* font-weight: bold; */
         text-decoration: none;
         color: black;
@@ -89,64 +90,120 @@
         padding: 1rem;
       }
 
+      .content-description {
+        padding: 50px;
+        overflow: auto;
+      }
+
       .subject {
         height: 15%;
         margin-bottom: 5%;
       }
 
       .description {
-        height: 70%
+        height: 70%;
       }
 
       .nav {
         height: 6vh;
         width: 100vw;
         background-color: #313132;
-        color: #F8F8F9;
+        color: #f8f8f9;
         margin: 4vh 0;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .nav-button {
+        font-size: 22px;
+        color: #f5f5f7;
+        text-decoration: none;
       }
       .responsive {
         width: 100%;
         max-width: 300px;
         height: auto;
       }
+
+      .font-subject {
+        font-size: 2vh;
+      }
+
+      .font-description {
+        font-size: 1.5vh;
+        font-weight: 500;
+      }
+
+      .temp-border {
+        border: 1px solid red;
+      }
+
+      .content-bottom {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 50px;
+      }
+
+      .picture {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 40%;
+        margin: 5%;
+      }
+
+      .caption {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 40%;
+        margin: 5%;
+      }
     </style>
     <script>
       var table = document.querySelector("#table");
-
     </script>
-</head>
+  </head>
   <body>
     <div class="nav">
-
+      <a class="nav-button" type="button" href="/"> HOME</a>
+      <a class="nav-button" type="button" href="/404"> 즐겨찾기</a>
+      <a class="nav-button" type="button" href="/404"> 정보수정</a>
+      <a class="nav-button" type="button" href="/404"> 이벤트</a>
     </div>
+
     {%for article in articles%}
-      <section class="container">
-        <!-- #1 Section -->
-        <section class="sub-container">
-          <article class="border subject">
-            <div class="content" onclick="readText(this)">
-              <a class="font" href="" type="button" >{{article[0]}}</a>
-            </div>
-          </article>
+    <section class="container">
+      <!-- #1 Section -->
+      <section class="sub-container">
+        <article class="border subject">
+          <div class="content" onclick="readText(this)">
+            <a class="font font-subject" href="" type="button">{{article[0]}}</a>
+          </div>
+        </article>
 
-          <article class="border description">
-            <div class="content" onclick="readText(this)">
-              <a class="font" href="" type="button" >{{article[3]}}</a>
-              <br>
-              <br>
-              <img src={{article[4]}} class="responsive">
-              <br>
-              <a class="font" href="" type="button" >{{article[5]}}</a>
-
+        <article class="border description">
+          <div class="content">
+            <div class="content-description" onclick="readText(this)">
+              <a class="font font-description" href="" type="button">{{article[3]}}</a>
             </div>
-          </article>
-      
-        </section>
+
+            <div class="content-bottom">
+              <div class="picture"><img src="{{article[4]}}" class="responsive" /></div>
+              <div class="caption">
+                <a class="font" href="" type="button" onclick="readText(this)">{{article[5]}}</a>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
+    </section>
     {%endfor%}
-    
-    
 
     <script>
       // ===========================사용 시 주석 제거===========================
